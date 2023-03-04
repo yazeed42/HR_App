@@ -1,0 +1,62 @@
+public CV[] CVs;
+    public void cvGEN() throws IOException, ParseException {
+        PARSER p=new PARSER();
+        int i=0;
+        String[] paths=new String[]{"/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 01.json",
+                "/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 02.json",
+                "/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 03.json"};
+        CV[] cvList = new CV[paths.length];
+        for (String e:paths){
+            CV cv=p.resumeGen(e);
+            cvList[i]=cv;
+            i++;
+        }
+        CVs=cvList;
+    }
+    @FXML
+    public TextField nameText;
+    @FXML
+    public TextField phoneText;
+
+    @FXML
+    public TextField emailText;
+    @FXML
+    public TextField DOBText;
+    @FXML
+    public TextField websiteText;
+    @FXML
+    public TextField LIPText;
+    @FXML
+    public TextField locText;
+    @FXML
+    public TextField SummaryText;
+    @FXML
+    public static ListView resumeLIst;
+    protected void omMouseClicked(){
+        String[] names=new String[CVs.length];
+        int i =0;
+        for (CV e:CVs){
+            names[i]=e.getName();
+            i++;
+        }
+//        ObservableList<String> names2= (ObservableList<String>) names;
+
+        resumeLIst.getItems().addAll(names);
+    }
+
+
+
+
+    String[] paths=new String[]{"/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 01.json",
+                    "/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 02.json",
+                    "/Users/yazeed_42/IdeaProjects/HR_App/src/main/java/com/example/hr_app/CV Sample # 03.json"
+
+
+
+
+
+
+
+
+
+
