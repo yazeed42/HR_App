@@ -30,4 +30,10 @@ public class Dates {
     public int getTotalMonth() {
         return totalMonth;
     }
+
+    public boolean isValid(String date){
+        if (date.length()>1)
+            System.out.println("yazeed");
+        return true;
+    }
 }
