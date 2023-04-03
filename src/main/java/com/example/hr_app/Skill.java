@@ -20,50 +20,38 @@ public class Skill {
         this.weighting = weighting;
         this.sources = sources;
         this.count=count;
-
-
     }
 
     public long getId() {
         return Id;
     }
-
     public String getEmisId() {
         return emisId;
     }
-
     public String getName() {
         return name;
     }
-
     public long getNumOfMon() {
         return numOfMon;
     }
-
     public skillSource[] getSources() {
         return sources;
     }
-
     public String getCount() {
         return count;
     }
-
     public String getLastUsed() {
         return lastUsed;
     }
-
     public String getType() {
         return type;
     }
-
     public String getWeighting() {
         return weighting;
     }
-
     public void setNumOfMon(long numOfMon) {
         this.numOfMon = numOfMon;
     }
-
     @Override
     public String toString() {
         return name+", "+type+".";

@@ -1,5 +1,4 @@
 package com.example.hr_app;
-
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,27 +6,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.*;
 import org.json.simple.parser.ParseException;
-
 import java.io.IOException;
-import java.util.Arrays;
-
 public class HelloController {
-
-
-    @FXML
-    ListView<String> resumeLIst;
-    @FXML
-    TextField nameText;
-    @FXML
-    TextField phoneText;
-    @FXML
-    TextField emailText;
-    @FXML
-    TextField DOBText;
-    @FXML
-    TextField websiteText;
-    @FXML
-    TextField LIPText;
+    @FXML ListView<String> resumeLIst;
+    @FXML TextField nameText;
+    @FXML TextField phoneText;
+    @FXML TextField emailText;
+    @FXML TextField DOBText;
+    @FXML TextField websiteText;
+    @FXML TextField LIPText;
     @FXML TextField locText;
     @FXML TextArea SummaryText;
     @FXML ListView eduListView;
@@ -42,17 +29,12 @@ public class HelloController {
     public void load() throws IOException, ParseException {
         if (resumeLIst.getItems()!=null) resumeLIst.getItems().clear();
         CV[] CVs=cvGEN();
-
         String[] names=getnames(CVs);
         ObservableList<String> items= FXCollections.observableArrayList();
         for(String e:names){
             items.add(e);
         }
-
         resumeLIst.getItems().addAll(items);
-
-
-
     }
     public void selectCV() throws IOException, ParseException {
         clearAll();
@@ -61,22 +43,14 @@ public class HelloController {
         for (CV e:CVs){
             if(resumeLIst.getSelectionModel().getSelectedItem().equals(e.getName())){
                 target=e;
-
             }
         }
-
-
         PersonalTabFiller(target);
         EduTabFiller(target);
         EduTabFiller2(target);
         WorkTabFiller(target);
         WorkTabFiller2(target);
         skilTabFiller2(target);
-
-
-
-
-
     }
     public void PersonalTabFiller(CV target){
         nameText.setText(target.getName());
@@ -123,15 +97,11 @@ public class HelloController {
             items2.add(e);
         }
         langListView.getItems().addAll(items2);
-
     }
     public void EduTabFiller2(CV target){
         //cert**************************************************
         ObservableList<String> items= FXCollections.observableArrayList();
-
-
         for (String e : target.getCertification()) {
-
             items.add(e);
         }
         cetfiListView.getItems().addAll(items);
@@ -153,8 +123,6 @@ public class HelloController {
     public void WorkTabFiller(CV target) {
         proText.setText(target.getProfession());
         totalText.setText(String.valueOf(target.getYearsOfExp()));
-
-
     }
     public void WorkTabFiller2(CV target) {
         //workExp**************************************************
@@ -170,7 +138,6 @@ public class HelloController {
         }
         workExpListview.getItems().addAll(items);
     }
-
         public void skilTabFiller2(CV target){
         //skils**************************************************
         String[] skills = new String[target.getSkills().length];
@@ -179,14 +146,12 @@ public class HelloController {
             skills[j]=e.toString();
             j++;
         }
-
         ObservableList<String> items2= FXCollections.observableArrayList();
         for(String e:skills){
             items2.add(e);
         }
         skillsListView.getItems().addAll(items2);
         }
-
         public void clearAll(){
             nameText.clear();
                     phoneText.clear();
@@ -205,15 +170,7 @@ public class HelloController {
             skillsListView.getItems().clear();
                     proText.clear();
             totalText.clear();
-
-
         }
-
-
-
-
-
-
     public CV[] cvGEN() throws IOException, ParseException {
         PARSER p=new PARSER();
         int i=0;
@@ -238,7 +195,4 @@ public class HelloController {
         }
         return names;
     }
-
-
-
 }
